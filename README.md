@@ -45,7 +45,7 @@ the following command:
 
 will produce `abcd.dgml` with following content:
 
-```CSS
+```XML
 <DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
 <Nodes>
     <Node Label="d" Id="d" />
