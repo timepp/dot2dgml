@@ -1,23 +1,18 @@
-CSS: /stylesheets/product.css
-CSS: ../product.css
-CSS: product.css
-
 dot2dgml
 ========
 
-Convert from [graphviz dot digraph][1] to [microsoft dgml format][2]
+Convert from [graphviz dot digraph][dot] to [microsoft dgml format][dgml].
 
-[1]: http://www.graphviz.org/content/dot-language
-[2]: http://msdn.microsoft.com/en-us/vstudio/gg145498
+[dot]:  http://www.graphviz.org/content/dot-language
+[dgml]: http://msdn.microsoft.com/en-us/vstudio/gg145498
 
-Graphviz dot language invents the simplest style for modeling dependencies.
-But output formats of `dot` program are all static -- it's hard to do further
-processing on them.  On the contrast, Microsoft Visual Studio has great
-support on dgml file format (another language for directed graph).  You can
-easily view and edit the dependencies (drag, assign color, re-layout...) in
-Visual Studio.
+Graphviz dot invents the *simplest style for modeling dependencies*. But output
+formats are all static -- it's hard to do further processing on them.
+On the contrast, Microsoft Visual Studio has great support on dgml file format
+(another language for directed graph).  You can easily view and edit the
+dependencies (drag, assign color, re-layout...) in Visual Studio.
 
-dot2dgml is the tool to translate the easy-to-write dot language to
+dot2dgml is the tool to translate the easy-to-write dot language to the
 easy-to-view dgml language.
 
 features & limitations
@@ -35,23 +30,23 @@ the shortest valid non-trival input is:
 
 dot2dgml has limitations as well:
 
-* many dot language features are not available in dgml
-* sub-graph is not supported as for now
+* many dot language features are not available in dgml.
+* sub-graph is not supported as for now.
 
 download
 ========
 
-the current version is 1.01, you can download from [here][1] or [here][2].
+the current version is 1.01, you can download from [here][d1] or [here][d2].
 
-[1]: http://timepp.github.io/product/dot2dgml/dot2dgml.zip
-[2]: http://pan.baidu.com/s/1i3ojLx7
+[d1]: http://timepp.github.io/product/dot2dgml/dot2dgml.zip
+[d2]: http://pan.baidu.com/s/1i3ojLx7
 
 the source code is available on [github](https://github.com/timepp/dot2dgml).
 
 examples
 ========
 
-the following command:
+The following command:
 
 	echo -n "a->b->c b->d" | dot2dgml -o abcd.dgml
 
@@ -73,7 +68,8 @@ will produce `abcd.dgml` with following content:
 </DirectedGraph>
 ```
 
-open `abcd.dgml` with visual studio, you will see something like this:
+Open `abcd.dgml` with visual studio, you will see something like this:
 
 ![abcd dgml at visual studio](http://timepp.github.io/product/dot2dgml/abcd_dgml_in_visual_studio.png)
 
+Try drag them, colorize them, group them, flag them, then save them. Enjoy!!!
