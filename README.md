@@ -45,21 +45,21 @@ the following command:
 
 will produce `abcd.dgml` with following content:
 
-    ```CSS
-    <DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
-    <Nodes>
-        <Node Label="d" Id="d" />
-        <Node Label="a" Id="a" />
-        <Node Label="b" Id="b" />
-        <Node Label="c" Id="c" />
-    </Nodes>
-    <Links>
-        <Link Target="b" Source="a" />
-        <Link Target="c" Source="b" />
-        <Link Target="d" Source="b" />
-    </Links>
-    </DirectedGraph>
-    ```
+```CSS
+<DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+<Nodes>
+    <Node Label="d" Id="d" />
+    <Node Label="a" Id="a" />
+    <Node Label="b" Id="b" />
+    <Node Label="c" Id="c" />
+</Nodes>
+<Links>
+    <Link Target="b" Source="a" />
+    <Link Target="c" Source="b" />
+    <Link Target="d" Source="b" />
+</Links>
+</DirectedGraph>
+```
 
 open `abcd.dgml` with visual studio, you will see something like this:
 
