@@ -10,31 +10,43 @@ Convert from [graphviz dot digraph][1] to [microsoft dgml format][2]
 [1]: http://www.graphviz.org/content/dot-language
 [2]: http://msdn.microsoft.com/en-us/vstudio/gg145498
 
-motivation
-==========
-
 Graphviz dot language invents the simplest style for modeling dependencies.
 But output formats of `dot` program are all static -- it's hard to do further
-processing on them.  On the contrast, microsoft visual studio has great
-support on dgml file format.  You can easily view and edit the dependencies (
-drag, assign color, re-layout...).
+processing on them.  On the contrast, Microsoft Visual Studio has great
+support on dgml file format (another language for directed graph).  You can
+easily view and edit the dependencies (drag, assign color, re-layout...) in
+Visual Studio.
 
 dot2dgml is the tool to translate the easy-to-write dot language to
 easy-to-view dgml language.
 
-limitations
-===========
+features & limitations
+======================
 
-dot2dgml input syntax is looser than dot language:
+dot2dgml do loose syntax check on dot language to minimize the required steps
+to dgml:
 
 * the `graph` statement can be ommited.
-  the shortest but non-trival input is:
-		a->b
+* minor syntax errors will be ignored.
 
-dot2dgml has some limitations as well:
+the shortest valid non-trival input is:
+
+	a->b
+
+dot2dgml has limitations as well:
 
 * many dot language features are not available in dgml
 * sub-graph is not supported as for now
+
+download
+========
+
+the current version is 1.01, you can download from [here][1] or [here][2].
+
+[1]: http://timepp.github.io/product/dot2dgml/dot2dgml.zip
+[2]: http://pan.baidu.com/s/1i3ojLx7
+
+the source code is available on [github](https://github.com/timepp/dot2dgml).
 
 examples
 ========
