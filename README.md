@@ -45,8 +45,8 @@ the following command:
 
 will produce `abcd.dgml` with following content:
 
-	```CSS
-	<DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+    ```CSS
+    <DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
     <Nodes>
         <Node Label="d" Id="d" />
         <Node Label="a" Id="a" />
@@ -58,8 +58,8 @@ will produce `abcd.dgml` with following content:
         <Link Target="c" Source="b" />
         <Link Target="d" Source="b" />
     </Links>
-	</DirectedGraph>
-	```
+    </DirectedGraph>
+    ```
 
 open `abcd.dgml` with visual studio, you will see something like this:
 
