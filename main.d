@@ -47,6 +47,10 @@ class Edge : Node
 // Tokenize the source buffer to tokens, removing any comments and white spaces not inside string
 string[] Tokenize(string s)
 {
+	// Remove quote, if any
+	s = strip(s);
+	if (s[0] == '"') s = s[1..$-1];
+
     string[] ret;
     bool inString = false;
     bool inBlockComment = false;
