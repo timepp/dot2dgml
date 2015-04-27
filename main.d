@@ -26,10 +26,9 @@ class Graph : Node
 
     Node getNode(dstring name)
     {
-        auto key = name.toLower();
-        if (key in nodes) return nodes[key];
+        if (name in nodes) return nodes[name];
         Node n = new Node(name);
-        nodes[key] = n;
+        nodes[name] = n;
         return n;
     }
 };
@@ -186,6 +185,14 @@ Graph ParseDot(dstring[] tokens)
     return g;
 }
 
+dstring MapAttribute(dstring attr)
+{
+	if (attr == "color"d) return "Stroke"d;
+	if (attr == "fillcolor"d) return "Background"d;
+	if (attr == "fontcolor"d) return "Foreground"d;
+	return attr;
+}
+
 string GenerateDgml(Graph g)
 {
     auto xg = new Tag("DirectedGraph");
@@ -200,7 +207,7 @@ string GenerateDgml(Graph g)
         xn.attr["Label"] = to!string(n.id);
         foreach(dstring k, dstring v; n.attr)
         {
-           xn.attr[to!string(k)] = to!string(v);
+           xn.attr[to!string(MapAttribute(k))] = to!string(v);
         }
         xNodes ~= new Element(xn);
     }
@@ -214,7 +221,7 @@ string GenerateDgml(Graph g)
         xe.attr["Source"] = to!string(e.left.id);
         foreach(dstring k, dstring v; e.attr)
         {
-            xe.attr[to!string(k)] = to!string(v);
+            xe.attr[to!string(MapAttribute(k))] = to!string(v);
         }
         xEdges ~= new Element(xe);
     }
