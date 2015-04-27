@@ -72,5 +72,5 @@ Then you can drag/colorize/group/flag... in the rich featured editor. Enjoy!!!
 
 More examples:
 
-BCPL [fillcolor=#008000;fontcolor=#ffff00] BCPL->B->C C->C++ [color=red] Simula->C++ [color=red]
+    BCPL [fillcolor=#008000;fontcolor=#ffff00] BCPL->B->C C->C++ [color=red] Simula->C++ [color=red]
 ![C++ dependencies](http://timepp.github.io/product/dot2dgml/cplusplus_dgml.png)
