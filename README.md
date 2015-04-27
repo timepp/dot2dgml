@@ -13,7 +13,7 @@ On the contrast, Microsoft Visual Studio has great support on dgml file format
 dependencies (drag, assign color, re-layout...) in Visual Studio.
 
 dot2dgml is the tool to translate the easy-to-write dot language to the
-easy-to-view dgml language.
+easy-to-view dgml language. So your idea can start up from scratch easily.
 
 features & limitations
 ======================
@@ -68,4 +68,9 @@ Open `abcd.dgml` with visual studio, you will see something like this:
 
 ![abcd dgml at visual studio](http://timepp.github.io/product/dot2dgml/abcd_dgml_in_visual_studio.png)
 
-Try drag them, colorize them, group them, flag them, then save them. Enjoy!!!
+Then you can drag/colorize/group/flag... in the rich featured editor. Enjoy!!!
+
+More examples:
+
+BCPL [fillcolor=#008000;fontcolor=#ffff00] BCPL->B->C C->C++ [color=red] Simula->C++ [color=red]
+![C++ dependencies](http://timepp.github.io/product/dot2dgml/cplusplus_dgml.png))
