@@ -36,12 +36,8 @@ dot2dgml has limitations as well:
 download
 ========
 
-the current version is 1.01, you can download from [here][d1] or [here][d2].
+You can download it at [github](https://github.com/timepp/dot2dgml/releases).
 
-[d1]: http://timepp.github.io/product/dot2dgml/dot2dgml.zip
-[d2]: http://pan.baidu.com/s/1i3ojLx7
-
-the source code is available on [github](https://github.com/timepp/dot2dgml).
 
 examples
 ========
