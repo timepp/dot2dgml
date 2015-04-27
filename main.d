@@ -3,12 +3,14 @@ import core.stdc.ctype;
 import std.xml;
 import std.string;
 import std.getopt;
+import std.conv;
+import std.regex;
 
 class Node
 {
-    string id;
-    string[string] attr;
-    this(string s)
+    dstring id;
+    dstring[dstring] attr;
+    this(dstring s)
     {
         id = s;
     }
@@ -19,10 +21,10 @@ class Node
 
 class Graph : Node
 {
-    Node[string] nodes;
+    Node[dstring] nodes;
     Edge[] edges;
 
-    Node getNode(string name)
+    Node getNode(dstring name)
     {
         auto key = name.toLower();
         if (key in nodes) return nodes[key];
@@ -45,31 +47,30 @@ class Edge : Node
 };
 
 // Tokenize the source buffer to tokens, removing any comments and white spaces not inside string
-string[] Tokenize(string s)
+dstring[] Tokenize(dstring s)
 {
 	// Remove quote, if any
 	s = strip(s);
 	if (s[0] == '"') s = s[1..$-1];
 
-    string[] ret;
+	// Remove comments
+	s = replace(s, regex(r"/\*.*?\*/"d, "gs"), " "d);
+	s = replace(s, regex(r"//.*?\n"d, "g"), "\n"d);
+
+    dstring[] ret;
     bool inString = false;
-    bool inBlockComment = false;
-    bool inLineComment = false;
     int p = 0;
     int q = 0;
     for (;;)
     {
         if (q == s.length)
         {
-            if (!inBlockComment && !inLineComment)
-            {
-                if (p < q) ret ~= s[p..q];
-            }
+			if (p < q) ret ~= s[p..q];
             break;
         }
 
-        char ch = s[q];
-        char ch2 = (q+1 == s.length)? 0 : s[q+1];
+        dchar ch = s[q];
+        dchar ch2 = (q+1 == s.length)? 0 : s[q+1];
         if (inString)
         {
             if (ch == '"')
@@ -78,63 +79,28 @@ string[] Tokenize(string s)
             }
             q++;
         }
-        else if (inBlockComment)
-        {
-            if (ch == '*' && ch2 == '/')
-            {
-                q += 2;
-                p = q;
-                inBlockComment = false;
-            }
-            else
-            {
-                q++;
-            }
-        }
-        else if (inLineComment)
-        {
-            if (ch == '\r' || ch == '\n')
-            {
-                q++;
-                p = q;
-                inLineComment = false;
-            }
-            else
-            {
-                q++;
-            }
-        }
         else
         {
-            if (isalnum(ch) || ch == '_' || ch == '.')
-            {
-                q++;
-            }
-            else if (ch == '"')
+            if (ch == '"')
             {
                 q++;
                 inString = true;
             }
-            else if (ch == '/' && ch2 == '/')
+			else if (indexOf("->{}=[]()"d, ch) != -1)
+			{
+				if (p < q) ret ~= s[p..q];
+				ret ~= s[q..q+1];
+				p = q+1;
+				q++;
+			}
+			else if (indexOf(" \t\r\n;"d, ch) != -1)
+			{
+				if (p < q) ret ~= s[p..q];
+				p = q+1;
+				q++;
+			}
+			else
             {
-                if (p < q) ret ~= s[p..q];
-                q++;
-                inLineComment = true;
-            }
-            else if (ch == '/' && ch2 == '*')
-            {
-                if (p < q) ret ~= s[p..q];
-                q++;
-                inBlockComment = true;
-            }
-            else
-            {
-                if (p < q) ret ~= s[p..q];
-                if (ch != ' ' && ch != '\t' && ch != '\r' && ch != '\n' && ch != ';')
-                {
-                    ret ~= s[q..q+1];
-                }
-                p = q+1;
                 q++;
             }
         }
@@ -143,7 +109,7 @@ string[] Tokenize(string s)
     return ret;
 }
 
-string normalize(string s)
+dstring normalize(dstring s)
 {
     if (s.length > 1 && s[0] == '"' && s[$-1] == '"')
     {
@@ -153,9 +119,8 @@ string normalize(string s)
     return s.strip();
 }
 
-Graph ParseDot(string dotsrc)
+Graph ParseDot(dstring[] tokens)
 {
-    string[] tokens = Tokenize(dotsrc);
     Graph g = new Graph;
     int p = 0;
     Node lastNode = null;
@@ -181,8 +146,8 @@ Graph ParseDot(string dotsrc)
         // edges
         if (p > 0 && p + 2 < tokens.length && tokens[p] == "-" && tokens[p+1] == ">")
         {
-            string leftName = tokens[p-1].normalize();
-            string rightName = tokens[p+2].normalize();
+            dstring leftName = tokens[p-1].normalize();
+            dstring rightName = tokens[p+2].normalize();
             Node left = g.getNode(leftName);
             Node right = g.getNode(rightName);
             Edge e = new Edge(left, right);
@@ -228,14 +193,14 @@ string GenerateDgml(Graph g)
     auto doc = new Document(xg);
 
     auto xNodes = new Element("Nodes");
-    foreach(string nodeID, Node n; g.nodes)
+    foreach(dstring nodeID, Node n; g.nodes)
     {
         auto xn = new Tag("Node");
-        xn.attr["Id"] = nodeID;
-        xn.attr["Label"] = n.id;
-        foreach(string k, string v; n.attr)
+        xn.attr["Id"] = to!string(nodeID);
+        xn.attr["Label"] = to!string(n.id);
+        foreach(dstring k, dstring v; n.attr)
         {
-            xn.attr[k] = v;
+           xn.attr[to!string(k)] = to!string(v);
         }
         xNodes ~= new Element(xn);
     }
@@ -245,11 +210,11 @@ string GenerateDgml(Graph g)
     foreach(e; g.edges)
     {
         auto xe = new Tag("Link");
-        xe.attr["Target"] = e.right.id;
-        xe.attr["Source"] = e.left.id;
-        foreach(string k, string v; e.attr)
+        xe.attr["Target"] = to!string(e.right.id);
+        xe.attr["Source"] = to!string(e.left.id);
+        foreach(dstring k, dstring v; e.attr)
         {
-            xe.attr[k] = v;
+            xe.attr[to!string(k)] = to!string(v);
         }
         xEdges ~= new Element(xe);
     }
@@ -291,7 +256,10 @@ int main(string[] args)
         fo = File(outfile, "w");
     }
 
-    Graph g = ParseDot(fi.readln(0));
+	string content = fi.readln(0);
+	dstring dstr = to!dstring(content);
+	dstring[] tokens = Tokenize(dstr);
+    Graph g = ParseDot(tokens);
     string dgml = GenerateDgml(g);
     fo.writeln(dgml);
     return 0;
