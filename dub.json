@@ -1,0 +1,9 @@
+{
+	"authors": [
+		"timepp"
+	],
+	"copyright": "Copyright © 2020, timepp",
+	"description": "A minimal D application.",
+	"license": "MIT",
+	"name": "dot2dgml"
+}
