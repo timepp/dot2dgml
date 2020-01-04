@@ -1,0 +1,305 @@
+digraph mygraph {
+	graph [bb="0,0,3879.5,1133"];
+	node [label="\N",
+		shape=box
+	];
+	"@atrhelper//:atrhelper"	 [height=0.5,
+		pos="1119.5,1115",
+		width=1.8889];
+	"@atrclient//:atrclient"	 [height=0.5,
+		pos="1282.5,973.5",
+		width=1.7639];
+	"@atrhelper//:atrhelper" -> "@atrclient//:atrclient"	 [pos="e,1262.6,991.53 1139.5,1096.9 1168.4,1072.1 1222,1026.3 1254.8,998.24"];
+	"//bazel:linux"	 [height=0.5,
+		pos="1119.5,734.5",
+		width=1.1389];
+	"@atrhelper//:atrhelper" -> "//bazel:linux"	 [pos="e,1119.5,752.85 1119.5,1096.8 1119.5,1036.8 1119.5,836.95 1119.5,763.18"];
+	"//bazel:windows"	 [height=0.5,
+		pos="779.5,473",
+		width=1.4722];
+	"@atrhelper//:atrhelper" -> "//bazel:windows"	 [pos="e,795.39,491.24 1051.2,1097.8 1028.6,1089.6 1004.8,1077.5 987.5,1060 912.4,983.84 926.65,939.46 899.5,836 872.62,733.56 904.96,698.68 \
+866.5,600 851.41,561.28 822.31,522.86 801.93,498.82"];
+	"//bazel:release_build"	 [height=0.5,
+		pos="644.5,473",
+		width=1.7778];
+	"@atrhelper//:atrhelper" -> "//bazel:release_build"	 [pos="e,580.33,484.5 1051.3,1111.6 961.55,1107.8 799.06,1098.7 661.5,1079 406.98,1042.6 270.37,1055.5 136.5,836 89.524,758.97 83.074,705.7 \
+136.5,633 188.38,562.4 442.1,509.15 570.2,486.29"];
+	"//bazel:debug_build"	 [height=0.5,
+		pos="62.5,473",
+		width=1.7361];
+	"@atrhelper//:atrhelper" -> "//bazel:debug_build"	 [pos="e,58.785,491.21 1051.2,1114.5 845.21,1115.3 240.01,1113.1 170.5,1060 -7.8103,923.81 38.497,597.76 56.807,501.31"];
+	"//bazel:windows_debug_build"	 [height=0.5,
+		pos="518.5,734.5",
+		width=2.5417];
+	"@atrhelper//:atrhelper" -> "//bazel:windows_debug_build"	 [pos="e,528.45,752.54 1051.3,1111.4 919.28,1105.6 639.11,1090 607.5,1060 540.2,996.22 601.92,942.58 574.5,854 564.21,820.76 546.23,784.94 \
+533.42,761.49"];
+	"//bazel:windows_release_build"	 [height=0.5,
+		pos="759.5,734.5",
+		width=2.5833];
+	"@atrhelper//:atrhelper" -> "//bazel:windows_release_build"	 [pos="e,758.97,752.82 1051.5,1112.6 986.2,1109.9 893.64,1102 866.5,1079 769.69,996.93 759.15,828.75 758.92,762.85"];
+	"//bazel:osx"	 [height=0.5,
+		pos="946.5,734.5",
+		width=1.0556];
+	"@atrhelper//:atrhelper" -> "//bazel:osx"	 [pos="e,949.74,752.8 1108,1096.9 1082.2,1058 1019.3,959.27 982.5,869 968.04,833.47 957.6,790.29 951.8,762.84"];
+	"@boost//:boost"	 [height=0.5,
+		pos="2586.5,734.5",
+		width=1.4444];
+	"@atrhelper//:atrhelper" -> "@boost//:boost"	 [pos="e,2580.2,752.85 1187.7,1113.5 1422.8,1111.7 2190.6,1104 2298.5,1079 2318.5,1074.4 2327.1,1075.5 2340.5,1060 2392.7,999.45 2335.4,\
+945.8 2389.5,887 2433.2,839.5 2475.8,877.19 2525.5,836 2549.3,816.26 2566.3,784.66 2576.2,762.17"];
+	"@curl//:curl"	 [height=0.5,
+		pos="657.5,973.5",
+		width=1.1389];
+	"@atrhelper//:atrhelper" -> "@curl//:curl"	 [pos="e,676.34,991.72 1051.3,1110 974.49,1104.9 854.9,1094.6 812.5,1079 762.68,1060.6 713.23,1023.1 684.02,998.33"];
+	"@openssl//:openssl"	 [height=0.5,
+		pos="2165.5,734.5",
+		width=1.7361];
+	"@atrhelper//:atrhelper" -> "@openssl//:openssl"	 [pos="e,2156.5,752.6 1187.8,1101.7 1342.2,1072.5 1728.3,992.34 2032.5,869 2061.1,857.42 2070.4,856.38 2093.5,836 2117.9,814.52 2138.6,\
+783.3 2151.5,761.37"];
+	"@protobuf3//:protobuf3"	 [height=0.5,
+		pos="2360.5,734.5",
+		width=2.1111];
+	"@atrhelper//:atrhelper" -> "@protobuf3//:protobuf3"	 [pos="e,2353.7,752.54 1187.8,1114.2 1429,1114.7 2228.8,1113.8 2270.5,1079 2349,1013.5 2290.7,952.4 2318.5,854 2327.6,821.84 2340.8,785.75 \
+2350,761.95"];
+	"@qt//:qt"	 [height=0.5,
+		pos="2485.5,734.5",
+		width=0.86111];
+	"@atrhelper//:atrhelper" -> "@qt//:qt"	 [pos="e,2483.7,752.6 1187.8,1113.9 1421.5,1113.5 2179.5,1109.5 2284.5,1079 2385.3,1049.7 2282.5,928.53 2356.5,854 2384.9,825.35 2414.5,\
+861.87 2445.5,836 2467.4,817.71 2477.4,785.73 2481.9,762.75"];
+	"@bazel_tools//tools/cpp:toolchain"	 [height=0.5,
+		pos="2065.5,473",
+		width=2.8889];
+	"@atrhelper//:atrhelper" -> "@bazel_tools//tools/cpp:toolchain"	 [pos="e,2082.9,491.06 1187.9,1114.4 1298.4,1113.7 1522.4,1105.9 1705.5,1060 1954,997.74 2094.9,1049.4 2236.5,836 2286.4,760.82 2273.7,\
+715.2 2236.5,633 2222.4,601.72 2203.8,605.2 2178.5,582 2147.6,553.66 2112.8,520.18 2090.1,498.09"];
+	"@atrhelper//:src/cpp/main/NetworkProvider.cpp\n@atrhelper//:src/cpp/public/DiagHelper.h\n@atrhelper//:src/cpp/main/LoggingProvider.cpp\n@\
+atrhelper//:src/cpp/public/CommandLineHelper.h\n@atrhelper//:src/cpp/public/FilePersistentStore.h\n@atrhelper//:src/cpp/public/LoggingProvider.h\n@\
+atrhelper//:src/cpp/main/FilePersistentStore.cpp\n@atrhelper//:src/cpp/public/TestNetworkProvider.h\n@atrhelper//:src/cpp/main/CommandLineHelper.cpp\n@\
+atrhelper//:src/cpp/public/NetworkProvider.h\n...and 4 more items"	 [height=2.4028,
+		pos="2553.5,973.5",
+		width=4.2917];
+	"@atrhelper//:atrhelper" -> "@atrhelper//:src/cpp/main/NetworkProvider.cpp\n@atrhelper//:src/cpp/public/DiagHelper.h\n@atrhelper//:src/cpp/main/LoggingProvider.cpp\n@\
+atrhelper//:src/cpp/public/CommandLineHelper.h\n@atrhelper//:src/cpp/public/FilePersistentStore.h\n@atrhelper//:src/cpp/public/LoggingProvider.h\n@\
+atrhelper//:src/cpp/main/FilePersistentStore.cpp\n@atrhelper//:src/cpp/public/TestNetworkProvider.h\n@atrhelper//:src/cpp/main/CommandLineHelper.cpp\n@\
+atrhelper//:src/cpp/public/NetworkProvider.h\n...and 4 more items"	 [pos="e,2431,1060.2 1187.7,1114.2 1434.1,1114.6 2269.9,1113.3 2384.5,1079 2397,1075.3 2409.5,1070.3 2421.7,1064.7"];
+	"@atrclient//:atrclient" -> "//bazel:linux"	 [pos="e,1124.1,752.63 1259.5,955.29 1235.6,936.37 1198.4,903.97 1174.5,869 1151.6,835.4 1135.6,790.76 1127,762.57"];
+	"@atrclient//:atrclient" -> "//bazel:windows"	 [pos="e,796.4,491.31 1270.7,955.25 1254,930.15 1223.8,881.57 1207.5,836 1176.6,749.58 1230.4,701.66 1169.5,633 1095.7,549.8 1027.6,623.67 \
+924.5,582 876.82,562.73 830.78,523.9 803.81,498.43"];
+	"@atrclient//:atrclient" -> "//bazel:release_build"	 [pos="e,650.78,491.3 1236.1,955.43 1186.8,934.85 1110.6,895.43 1069.5,836 1017.1,760.14 1091.7,698.2 1026.5,633 976.38,582.9 940.43,611.49 \
+870.5,600 836.72,594.45 746.74,599.8 717.5,582 686.78,563.3 666.07,526.2 654.78,500.75"];
+	"@atrclient//:atrclient" -> "//bazel:debug_build"	 [pos="e,125.32,488.29 1219,956.86 1159,938.52 1071.6,901.9 1026.5,836 974.91,760.54 1061.5,694.06 993.5,633 965.6,607.95 693.56,620.72 \
+656.5,615 630.19,610.94 624.35,606.38 598.5,600 433.24,559.21 238.55,514.2 135.33,490.58"];
+	"@atrclient//:atrclient" -> "//bazel:windows_debug_build"	 [pos="e,536.72,752.54 1218.6,967.23 1102.4,955.78 850.64,922.37 657.5,836 614.14,816.61 570.85,782.37 544.38,759.31"];
+	"@atrclient//:atrclient" -> "//bazel:windows_release_build"	 [pos="e,779.79,752.51 1218.9,956.51 1140.7,935.37 1005.4,893.93 899.5,836 858.35,813.49 815.09,780.86 787.74,758.94"];
+	"@atrclient//:atrclient" -> "//bazel:osx"	 [pos="e,948.62,752.73 1218.9,964.68 1155.4,953.71 1058.8,927.99 998.5,869 969.05,840.19 955.94,792.76 950.35,762.88"];
+	"@atrclient//:atrclient" -> "@boost//:boost"	 [pos="e,2581.4,752.77 1346,965.4 1512.1,946.88 1972.8,895.6 2356.5,854 2394,849.93 2493.6,856.24 2525.5,836 2552.2,819.06 2568.9,785.83 \
+2578,762.23"];
+	"@atrclient//:atrclient" -> "@openssl//:openssl"	 [pos="e,2157.7,752.84 1346.1,965.75 1468.9,952.12 1746.6,918.35 1976.5,869 2029.3,857.66 2049.3,867.04 2093.5,836 2120.4,817.12 2140.9,\
+784.87 2153,762"];
+	"@atrclient//:atrclient" -> "@protobuf3//:protobuf3"	 [pos="e,2345.2,752.8 1346,965.83 1475.7,951.75 1779.9,916.38 2032.5,869 2060.8,863.69 2067.2,859.16 2095.5,854 2157.7,842.67 2178.4,860.84 \
+2236.5,836 2277.2,818.6 2315.4,783.79 2338.3,760.07"];
+	"@atrclient//:atrclient" -> "@qt//:qt"	 [pos="e,2484.1,752.76 1346.2,968.4 1482.1,958.73 1810.2,930.55 2078.5,869 2099,864.29 2102.8,857.96 2123.5,854 2158.7,847.27 2416.4,856.93 \
+2445.5,836 2468.9,819.16 2478.6,786.38 2482.6,762.84"];
+	"@atrclient//:atrclient" -> "@bazel_tools//tools/cpp:toolchain"	 [pos="e,2050.6,491.25 1346.1,967.66 1491.2,955.28 1840.7,917.54 1920.5,836 1984.8,770.36 1924.7,718.01 1959.5,633 1980.7,581.37 2019.8,\
+528.95 2044.1,499.06"];
+	"@atr-client-protobuf-cpp//:atr-client-protobuf-cpp"	 [height=0.5,
+		pos="1364.5,734.5",
+		width=4.1111];
+	"@atrclient//:atrclient" -> "@atr-client-protobuf-cpp//:atr-client-protobuf-cpp"	 [pos="e,1358.5,752.71 1288.4,955.46 1302.5,914.73 1338.2,811.51 1355.2,762.34"];
+	"@gmock//:gmock"	 [height=0.5,
+		pos="2026.5,734.5",
+		width=1.6111];
+	"@atrclient//:atrclient" -> "@gmock//:gmock"	 [pos="e,2022.5,752.71 1346,969.83 1494.1,962.5 1857,937.82 1954.5,869 1990.8,843.36 2010.6,793.44 2019.8,762.44"];
+	"@atrclient//:src/cpp/public/ILoggingProvider.h\n@atrclient//:src/cpp/public/IPersistentStore.h\n@atrclient//:src/cpp/public/RSAKey.h\n@\
+atrclient//:src/cpp/main/TableauDesktopServerContracts.cpp\n@atrclient//:src/cpp/public/ManagedLicensingATRVerification.h\n@atrclient//:\
+src/cpp/public/TableauDesktopServerContracts.h\n@atrclient//:src/cpp/public/OpenSSLCommon.h\n@atrclient//:src/cpp/main/ManagedLicensingATRPersistence.cpp\n@\
+atrclient//:src/cpp/public/ManagedLicensingATRHelper.h\n...and 29 more items"	 [height=2.1944,
+		pos="1721.5,734.5",
+		width=5.2917];
+	"@atrclient//:atrclient" -> "@atrclient//:src/cpp/public/ILoggingProvider.h\n@atrclient//:src/cpp/public/IPersistentStore.h\n@atrclient//:src/cpp/public/RSAKey.h\n@\
+atrclient//:src/cpp/main/TableauDesktopServerContracts.cpp\n@atrclient//:src/cpp/public/ManagedLicensingATRVerification.h\n@atrclient//:\
+src/cpp/public/TableauDesktopServerContracts.h\n@atrclient//:src/cpp/public/OpenSSLCommon.h\n@atrclient//:src/cpp/main/ManagedLicensingATRPersistence.cpp\n@\
+atrclient//:src/cpp/public/ManagedLicensingATRHelper.h\n...and 29 more items"	 [pos="e,1577,813.53 1314.1,955.46 1366.8,927 1476,868.03 1568.1,818.31"];
+	"@bazel_tools//platforms:linux"	 [height=0.5,
+		pos="1025.5,473",
+		width=2.5417];
+	"//bazel:linux" -> "@bazel_tools//platforms:linux"	 [pos="e,1031.7,491.09 1113.3,716.47 1097.3,672.3 1054.4,553.77 1035.1,500.53"];
+	"@bazel_tools//platforms:windows"	 [height=0.5,
+		pos="774.5,273",
+		width=2.875];
+	"//bazel:windows" -> "@bazel_tools//platforms:windows"	 [pos="e,774.93,291.04 779.07,454.78 778.19,420.31 776.23,342.65 775.19,301.22"];
+	"//bazel:fast_build\n//bazel:dbg_build"	 [height=0.52778,
+		pos="62.5,273",
+		width=1.5694];
+	"//bazel:debug_build" -> "//bazel:fast_build\n//bazel:dbg_build"	 [label="//bazel:fast_build//conditions:default",
+		lp="163.5,328",
+		pos="e,62.5,292.18 62.5,454.78 62.5,420.59 62.5,343.87 62.5,302.21"];
+	"//bazel:windows_debug_build" -> "//bazel:windows"	 [label="//conditions:default",
+		lp="603,607.5",
+		pos="e,774.97,491.28 516.78,716.06 515,687.13 516.19,629.5 549.5,600 577.61,575.11 686.06,602.52 717.5,582 746.14,563.31 763.06,526.47 \
+771.81,501.06"];
+	"//bazel:windows_debug_build" -> "//bazel:debug_build"	 [label="//bazel:windows",
+		lp="427.5,607.5",
+		pos="e,115.83,491.05 504.66,716.3 486.5,694.61 452.77,657.23 417.5,633 323.62,568.49 199.33,519.96 125.47,494.36"];
+	"//bazel:windows_release_build" -> "//bazel:windows"	 [label="//conditions:default",
+		lp="813,607.5",
+		pos="e,775.92,491.02 758.63,716.18 757.55,690.69 756.22,641.59 759.5,600 762.21,565.61 769.03,526.43 773.95,501.01"];
+	"//bazel:windows_release_build" -> "//bazel:release_build"	 [label="//bazel:windows",
+		lp="710.5,607.5",
+		pos="e,644.25,491.27 740.82,716.23 718.89,694.77 683.26,655.96 665.5,615 649.43,577.95 645.32,530.86 644.44,501.57"];
+	"@bazel_tools//platforms:osx"	 [height=0.5,
+		pos="906.5,328",
+		width=2.4583];
+	"//bazel:osx" -> "@bazel_tools//platforms:osx"	 [pos="e,907.29,346.22 943.58,716.28 938.92,688.23 929.78,630.88 924.5,582 915.66,500.13 910.13,402.86 907.79,356.38"];
+	"@boost//:boost" -> "@bazel_tools//tools/cpp:toolchain"	 [pos="e,2077.4,491.13 2580.9,716.28 2572.6,693.5 2554.8,653.8 2525.5,633 2468.1,592.22 2440.1,610.64 2370.5,600 2285.8,587.05 2256.5,617.58 \
+2178.5,582 2138.4,563.68 2103.6,525.05 2083.6,499.31"];
+	"@boost//:boost/predef/architecture/ppc.h\n@boost//:boost/fusion/view/iterator_range/detail/is_segmented_impl.hpp\n@boost//:boost/\
+mpl/aux_/preprocessor/enum.hpp\n@boost//:boost/type_traits/declval.hpp\n@boost//:boost/asio/ip/tcp.hpp\n@boost//:boost/preprocessor/\
+seq/enum.hpp\n@boost//:boost/filesystem/path.hpp\n@boost//:boost/mpl/aux_/config/bcc.hpp\n@boost//:boost/date_time/dst_rules.hpp\n@\
+boost//:boost/predef/os/haiku.h\n@boost//:boost/fusion/sequence/intrinsic/empty.hpp\n...and 1545 more items"	 [height=2.6111,
+		pos="3668.5,473",
+		width=5.8611];
+	"@boost//:boost" -> "@boost//:boost/predef/architecture/ppc.h\n@boost//:boost/fusion/view/iterator_range/detail/is_segmented_impl.hpp\n@boost//:boost/\
+mpl/aux_/preprocessor/enum.hpp\n@boost//:boost/type_traits/declval.hpp\n@boost//:boost/asio/ip/tcp.hpp\n@boost//:boost/preprocessor/\
+seq/enum.hpp\n@boost//:boost/filesystem/path.hpp\n@boost//:boost/mpl/aux_/config/bcc.hpp\n@boost//:boost/date_time/dst_rules.hpp\n@\
+boost//:boost/predef/os/haiku.h\n@boost//:boost/fusion/sequence/intrinsic/empty.hpp\n...and 1545 more items"	 [pos="e,3489.2,567.05 2638.7,729.48 2775,717.9 3151.3,678.91 3448.5,582 3458.8,578.64 3469.2,574.88 3479.6,570.84"];
+	"@curl//:curl" -> "//bazel:windows_debug_build"	 [pos="e,531.39,752.65 649.99,955.22 639.59,931.78 619.79,888.84 599.5,854 580.15,820.78 554.7,784.56 537.53,761.02"];
+	"@curl//:curl" -> "//bazel:windows_release_build"	 [pos="e,752.09,752.71 664.84,955.46 682.4,914.64 726.97,811.08 748.08,762.03"];
+	"@curl//:curl" -> "@bazel_tools//tools/cpp:toolchain"	 [pos="e,2053.9,491.02 654.56,955.34 644.28,892.94 612.97,679.31 657.5,633 682.43,607.07 1918.4,595.97 1951.5,582 1992.6,564.69 2027.7,\
+525.43 2047.7,499.32"];
+	"@curl//:release/include/curl/typecheck-gcc.h\n@curl//:debug/include/curl/curlver.h\n@curl//:debug/include/curl/mprintf.h\n@curl//:\
+debug/include/curl/stdcheaders.h\n@curl//:release/include/curl/multi.h\n@curl//:debug/include/curl/system.h\n@curl//:release/include/\
+curl/system.h\n@curl//:debug/include/curl/typecheck-gcc.h\n@curl//:release/include/curl/curl.h\n@curl//:release/include/curl/urlapi.h\n@\
+curl//:release/include/curl/curlver.h\n@curl//:debug/include/curl/urlapi.h\n...and 6 more items"	 [height=2.8194,
+		pos="277.5,734.5",
+		width=3.6528];
+	"@curl//:curl" -> "@curl//:release/include/curl/typecheck-gcc.h\n@curl//:debug/include/curl/curlver.h\n@curl//:debug/include/curl/mprintf.h\n@curl//:\
+debug/include/curl/stdcheaders.h\n@curl//:release/include/curl/multi.h\n@curl//:debug/include/curl/system.h\n@curl//:release/include/\
+curl/system.h\n@curl//:debug/include/curl/typecheck-gcc.h\n@curl//:release/include/curl/curl.h\n@curl//:release/include/curl/urlapi.h\n@\
+curl//:release/include/curl/curlver.h\n@curl//:debug/include/curl/urlapi.h\n...and 6 more items"	 [label="//bazel:windows_release_build//bazel:windows_debug_build",
+		lp="427,861.5",
+		pos="e,246.31,836.03 616.26,968.1 523.38,957.25 302.51,925.88 258.5,869 253.09,862.01 249.7,854.19 247.83,845.92"];
+	"@openssl//:openssl" -> "@bazel_tools//tools/cpp:toolchain"	 [pos="e,2072.1,491.09 2158.9,716.47 2141.9,672.3 2096.2,553.77 2075.7,500.53"];
+	"@openssl//:include/openssl/ssl.h\n@openssl//:include/openssl/srp.h\n@openssl//:include/openssl/mdc2.h\n@openssl//:include/openssl/\
+ripemd.h\n@openssl//:include/openssl/e_os2.h\n@openssl//:include/openssl/md4.h\n@openssl//:include/openssl/ssl23.h\n@openssl//:include/\
+openssl/idea.h\n@openssl//:include/openssl/symhacks.h\n@openssl//:include/openssl/x509_vfy.h\n@openssl//:include/openssl/asn1.h\n@\
+openssl//:include/openssl/evp.h\n@openssl//:include/openssl/ssl2.h\n...and 62 more items"	 [height=3.0278,
+		pos="2307.5,473",
+		width=3.3194];
+	"@openssl//:openssl" -> "@openssl//:include/openssl/ssl.h\n@openssl//:include/openssl/srp.h\n@openssl//:include/openssl/mdc2.h\n@openssl//:include/openssl/\
+ripemd.h\n@openssl//:include/openssl/e_os2.h\n@openssl//:include/openssl/md4.h\n@openssl//:include/openssl/ssl23.h\n@openssl//:include/\
+openssl/idea.h\n@openssl//:include/openssl/symhacks.h\n@openssl//:include/openssl/x509_vfy.h\n@openssl//:include/openssl/asn1.h\n@\
+openssl//:include/openssl/evp.h\n@openssl//:include/openssl/ssl2.h\n...and 62 more items"	 [pos="e,2248.4,582.09 2174.8,716.47 2188.9,690.73 2216.8,639.74 2243.4,591.13"];
+	"@protobuf3//:protobuf3" -> "@bazel_tools//tools/cpp:toolchain"	 [pos="e,2078.3,491.37 2354.1,716.39 2342.3,687.42 2314.3,629.04 2270.5,600 2235.8,576.98 2215.5,601.17 2178.5,582 2139.7,561.92 2105.1,\
+524.45 2084.7,499.36"];
+	"@protobuf3//:include/google/protobuf/empty.pb.h\n@protobuf3//:include/google/protobuf/io/printer.h\n@protobuf3//:include/google/\
+protobuf/unknown_field_set.h\n@protobuf3//:include/google/protobuf/service.h\n@protobuf3//:include/google/protobuf/compiler/command_\
+line_interface.h\n@protobuf3//:include/google/protobuf/stubs/status.h\n@protobuf3//:include/google/protobuf/type.pb.h\n@protobuf3//:\
+include/google/protobuf/compiler/php/php_generator.h\n...and 94 more items"	 [height=1.9861,
+		pos="2662.5,473",
+		width=6.0278];
+	"@protobuf3//:protobuf3" -> "@protobuf3//:include/google/protobuf/empty.pb.h\n@protobuf3//:include/google/protobuf/io/printer.h\n@protobuf3//:include/google/\
+protobuf/unknown_field_set.h\n@protobuf3//:include/google/protobuf/service.h\n@protobuf3//:include/google/protobuf/compiler/command_\
+line_interface.h\n@protobuf3//:include/google/protobuf/stubs/status.h\n@protobuf3//:include/google/protobuf/type.pb.h\n@protobuf3//:\
+include/google/protobuf/compiler/php/php_generator.h\n...and 94 more items"	 [pos="e,2555.6,544.67 2372.9,716.43 2388.6,695.54 2416.9,659.65 2445.5,633 2476.7,603.88 2513.3,575.28 2547.5,550.54"];
+	"@qt//:qt" -> "@bazel_tools//tools/cpp:toolchain"	 [pos="e,2077.9,491.18 2483.6,716.45 2480.2,693.86 2470.7,654.37 2445.5,633 2392.8,588.31 2361.5,612.68 2293.5,600 2242.6,590.51 2224.9,\
+604.92 2178.5,582 2139.2,562.56 2104.4,524.58 2084.2,499.24"];
+	"@qt//:include/QtWidgets/5.7.0/QtWidgets/private/qabstractslider_p.h\n@qt//:include/QtLocation/qgeoserviceprovider.h\n@qt//:include/\
+QtCharts/5.7.0/QtCharts/private/abstractdomain_p.h\n@qt//:include/QtMultimedia/qcameracontrol.h\n@qt//:include/QtQuickTemplates2/\
+5.7.0/QtQuickTemplates2/private/qquickswipedelegate_p.h\n@qt//:include/QtQml/5.7.0/QtQml/private/qv4isel_moth_p.h\n@qt//:include/\
+QtGui/qopenglfunctions_4_3_core.h\n...and 4034 more items"	 [height=1.7778,
+		pos="3168.5,473",
+		width=7.5139];
+	"@qt//:qt" -> "@qt//:include/QtWidgets/5.7.0/QtWidgets/private/qabstractslider_p.h\n@qt//:include/QtLocation/qgeoserviceprovider.h\n@qt//:include/\
+QtCharts/5.7.0/QtCharts/private/abstractdomain_p.h\n@qt//:include/QtMultimedia/qcameracontrol.h\n@qt//:include/QtQuickTemplates2/\
+5.7.0/QtQuickTemplates2/private/qquickswipedelegate_p.h\n@qt//:include/QtQml/5.7.0/QtQml/private/qv4isel_moth_p.h\n@qt//:include/\
+QtGui/qopenglfunctions_4_3_core.h\n...and 4034 more items"	 [pos="e,3023.8,537.05 2487.2,716.17 2490.3,693.26 2499.5,653.42 2525.5,633 2653.6,532.37 2730.8,622.91 2888.5,582 2930.1,571.2 2974,556.13 \
+3014.4,540.67"];
+	"//external:cc_toolchain"	 [height=0.5,
+		pos="2065.5,273",
+		width=1.9722];
+	"@bazel_tools//tools/cpp:toolchain" -> "//external:cc_toolchain"	 [pos="e,2065.5,291.04 2065.5,454.78 2065.5,420.31 2065.5,342.65 2065.5,301.22"];
+	"@atr-client-protobuf-cpp//:atr-client-protobuf-cpp" -> "@bazel_tools//tools/cpp:toolchain"	 [pos="e,2053.1,491.4 1384.7,716.21 1413.2,692.96 1467.6,652.3 1521.5,633 1702.7,568.14 1777.2,663.66 1951.5,582 1991.4,563.29 2026.4,525.12 \
+2046.7,499.54"];
+	"@atr-client-protobuf-cpp//:include/V1AtrDTO.pb.h\n@atr-client-protobuf-cpp//:include/protos/ServerClientContracts.grpc.pb.h\n@atr-client-protobuf-cpp//:\
+include/B1AtrDTO.grpc.pb.h\n@atr-client-protobuf-cpp//:include/B1AtrDTO.pb.h\n@atr-client-protobuf-cpp//:include/protos/TableauDesktopServerContracts.pb.h\n@\
+atr-client-protobuf-cpp//:include/ServerClientContracts.grpc.pb.h\n@atr-client-protobuf-cpp//:include/protos/ServerClientContracts.pb.h\n...and \
+13 more items"	 [height=1.7778,
+		pos="1367.5,473",
+		width=6.4444];
+	"@atr-client-protobuf-cpp//:atr-client-protobuf-cpp" -> "@atr-client-protobuf-cpp//:include/V1AtrDTO.pb.h\n@atr-client-protobuf-cpp//:include/protos/ServerClientContracts.grpc.pb.h\n@atr-client-protobuf-cpp//:\
+include/B1AtrDTO.grpc.pb.h\n@atr-client-protobuf-cpp//:include/B1AtrDTO.pb.h\n@atr-client-protobuf-cpp//:include/protos/TableauDesktopServerContracts.pb.h\n@\
+atr-client-protobuf-cpp//:include/ServerClientContracts.grpc.pb.h\n@atr-client-protobuf-cpp//:include/protos/ServerClientContracts.pb.h\n...and \
+13 more items"	 [pos="e,1366.8,537.17 1364.7,716.47 1365.1,682.75 1366,605.71 1366.7,547.45"];
+	"@gmock//:gmock" -> "@bazel_tools//tools/cpp:toolchain"	 [pos="e,2062.9,491.09 2029.1,716.47 2035.7,672.48 2053.4,554.76 2061.4,501.2"];
+	"@gmock//:include/gtest/internal/gtest-param-util.h\n@gmock//:include/gmock/gmock-actions.h\n@gmock//:include/gtest/internal/custom/\
+gtest-printers.h\n@gmock//:include/gtest/internal/gtest-type-util.h\n@gmock//:include/gtest/internal/gtest-string.h\n@gmock//:include/\
+gmock/gmock-matchers.h\n@gmock//:include/gtest/gtest_prod.h\n@gmock//:include/gtest/gtest-printers.h\n@gmock//:include/gmock/gmock-generated-matchers.h\n@\
+gmock//:include/gtest/internal/gtest-port.h\n...and 31 more items"	 [height=2.4028,
+		pos="1780.5,473",
+		width=4.5139];
+	"@gmock//:gmock" -> "@gmock//:include/gtest/internal/gtest-param-util.h\n@gmock//:include/gmock/gmock-actions.h\n@gmock//:include/gtest/internal/custom/\
+gtest-printers.h\n@gmock//:include/gtest/internal/gtest-type-util.h\n@gmock//:include/gtest/internal/gtest-string.h\n@gmock//:include/\
+gmock/gmock-matchers.h\n@gmock//:include/gtest/gtest_prod.h\n@gmock//:include/gtest/gtest-printers.h\n@gmock//:include/gmock/gmock-generated-matchers.h\n@\
+gmock//:include/gtest/internal/gtest-port.h\n...and 31 more items"	 [pos="e,1861.7,559.7 2010.4,716.47 1981.9,686.42 1920.8,621.95 1868.7,567.03"];
+	"@platforms//os:linux"	 [height=0.5,
+		pos="1025.5,218",
+		width=1.8472];
+	"@bazel_tools//platforms:linux" -> "@platforms//os:linux"	 [pos="e,1025.5,236.18 1025.5,454.61 1025.5,411.36 1025.5,298.65 1025.5,246.37"];
+	"@platforms//os:os"	 [height=0.5,
+		pos="890.5,91",
+		width=1.6667];
+	"@platforms//os:linux" -> "@platforms//os:os"	 [pos="e,909.2,109.31 1007,199.88 983.61,178.22 943.17,140.77 916.62,116.19"];
+	"@platforms//os:osx"	 [height=0.5,
+		pos="890.5,218",
+		width=1.7639];
+	"@bazel_tools//platforms:osx" -> "@platforms//os:osx"	 [pos="e,893.06,236.31 903.93,309.65 901.4,292.56 897.49,266.22 894.55,246.32"];
+	"@platforms//os:windows"	 [height=0.5,
+		pos="779.5,164",
+		width=2.1806];
+	"@bazel_tools//platforms:windows" -> "@platforms//os:windows"	 [pos="e,778.7,182.15 775.3,254.81 776.09,237.96 777.3,212.02 778.22,192.34"];
+	"@platforms//os:windows" -> "@platforms//os:os"	 [pos="e,863.74,109.11 806.09,145.99 820.81,136.58 839.29,124.76 855.21,114.57"];
+	"@platforms//os:osx" -> "@platforms//os:os"	 [pos="e,890.5,109.31 890.5,199.88 890.5,179.15 890.5,143.95 890.5,119.42"];
+	"@local_config_cc//:toolchain"	 [height=0.5,
+		pos="2065.5,164",
+		width=2.5139];
+	"//external:cc_toolchain" -> "@local_config_cc//:toolchain"	 [pos="e,2065.5,182.15 2065.5,254.81 2065.5,237.96 2065.5,212.02 2065.5,192.34"];
+	"@local_config_cc//:cc-compiler-armeabi-v7a"	 [height=0.5,
+		pos="2381.5,91",
+		width=3.7361];
+	"@local_config_cc//:toolchain" -> "@local_config_cc//:cc-compiler-armeabi-v7a"	 [pos="e,2305.6,109.05 2141.2,145.99 2187.7,135.53 2247.5,122.11 2295.8,111.26"];
+	"@local_config_cc//:cc-compiler-x64_windows"	 [height=0.5,
+		pos="2673.5,91",
+		width=3.875];
+	"@local_config_cc//:toolchain" -> "@local_config_cc//:cc-compiler-x64_windows"	 [pos="e,2534,108.29 2156.2,152.41 2253.3,141.07 2408.8,122.91 2524,109.46"];
+	"@local_config_cc//:cc-compiler-x64_windows_msys"	 [height=0.5,
+		pos="1384.5,91",
+		width=4.3889];
+	"@local_config_cc//:toolchain" -> "@local_config_cc//:cc-compiler-x64_windows_msys"	 [pos="e,1542.7,108.5 1974.7,153.54 1867.3,142.34 1686.4,123.47 1553.1,109.57"];
+	"@local_config_cc//:cc-compiler-x64_windows_mingw"	 [height=0.5,
+		pos="1722.5,91",
+		width=4.4861];
+	"@local_config_cc//:toolchain" -> "@local_config_cc//:cc-compiler-x64_windows_mingw"	 [pos="e,1804.9,109.05 1983.3,145.99 1932.6,135.49 1867.4,121.99 1814.9,111.12"];
+	"@local_config_cc//:cc-compiler-x64_windows-clang-cl"	 [height=0.5,
+		pos="2065.5,91",
+		width=4.5417];
+	"@local_config_cc//:toolchain" -> "@local_config_cc//:cc-compiler-x64_windows-clang-cl"	 [pos="e,2065.5,109.03 2065.5,145.81 2065.5,137.79 2065.5,128.05 2065.5,119.07"];
+	"@local_config_cc//:stub_armeabi-v7a"	 [height=0.5,
+		pos="2381.5,18",
+		width=3.1806];
+	"@local_config_cc//:cc-compiler-armeabi-v7a" -> "@local_config_cc//:stub_armeabi-v7a"	 [pos="e,2381.5,36.029 2381.5,72.813 2381.5,64.789 2381.5,55.047 2381.5,46.069"];
+	"@local_config_cc//:msvc_x64"	 [height=0.5,
+		pos="2673.5,18",
+		width=2.6111];
+	"@local_config_cc//:cc-compiler-x64_windows" -> "@local_config_cc//:msvc_x64"	 [pos="e,2673.5,36.029 2673.5,72.813 2673.5,64.789 2673.5,55.047 2673.5,46.069"];
+	"@local_config_cc//:msys_x64"	 [height=0.5,
+		pos="1384.5,18",
+		width=2.5972];
+	"@local_config_cc//:cc-compiler-x64_windows_msys" -> "@local_config_cc//:msys_x64"	 [pos="e,1384.5,36.029 1384.5,72.813 1384.5,64.789 1384.5,55.047 1384.5,46.069"];
+	"@local_config_cc//:msys_x64_mingw"	 [height=0.5,
+		pos="1722.5,18",
+		width=3.2083];
+	"@local_config_cc//:cc-compiler-x64_windows_mingw" -> "@local_config_cc//:msys_x64_mingw"	 [pos="e,1722.5,36.029 1722.5,72.813 1722.5,64.789 1722.5,55.047 1722.5,46.069"];
+	"@local_config_cc//:clang_cl_x64"	 [height=0.5,
+		pos="2065.5,18",
+		width=2.8333];
+	"@local_config_cc//:cc-compiler-x64_windows-clang-cl" -> "@local_config_cc//:clang_cl_x64"	 [pos="e,2065.5,36.029 2065.5,72.813 2065.5,64.789 2065.5,55.047 2065.5,46.069"];
+}
