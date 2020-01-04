@@ -1,4 +1,4 @@
-module strutil;
+module source.strutil;
 
 import std.string;
 import std.algorithm;
@@ -21,6 +21,30 @@ unittest
     assert(getIndention("abcd    ") == 0);
     assert(getIndention(" ") == 1);
     assert(getIndention("\tabcd") == 0);
+}
+
+string unquote(string s, char q = '"')
+{
+    char qs = q;
+    char qe = q;
+    switch (q)
+    {
+        case '[': qe = ']'; break;
+        case ']': qs = '['; break;
+        case '{': qe = '}'; break;
+        case '}': qs = '{'; break;
+        case '<': qe = '>'; break;
+        case '>': qs = '<'; break;
+        case '(': qe = ')'; break;
+        case ')': qs = '('; break;
+        default: break;
+    }
+
+    if (s.length > 1 && s[0] == qs && s[$-1] == qe)
+    {
+        return s[1..$-1];
+    }
+    return s;
 }
 
 /// unindent according to the first non-empty line
