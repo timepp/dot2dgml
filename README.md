@@ -1,5 +1,6 @@
-dot2dgml
-========
+# dot2dgml
+
+## introduction
 
 Convert from [graphviz dot digraph][dot] to [microsoft dgml format][dgml].
 
@@ -15,8 +16,7 @@ dependencies (drag, assign color, re-layout...) in Visual Studio.
 dot2dgml is the tool to translate the easy-to-write dot language to the
 easy-to-view dgml language. So your idea can start up from scratch easily.
 
-features & limitations
-======================
+## features & limitations
 
 dot2dgml do loose syntax check on dot language to minimize the required steps
 to dgml:
@@ -33,14 +33,11 @@ dot2dgml has limitations as well:
 * many dot language features are not available in dgml.
 * sub-graph is not supported as for now.
 
-download
-========
+Unicode input should be `utf-8` encoded. If you want to pipe output to `dot2dgml`, 
+- On Windows command line, run `chcp 65001` beforehand
+- On Linux command line, set `LANG` to `UTF-8` 
 
-You can download it at [github](https://github.com/timepp/dot2dgml/releases).
-
-
-examples
-========
+## examples
 
 The following command:
 
@@ -66,11 +63,11 @@ will produce `abcd.dgml` with following content:
 
 Open `abcd.dgml` with visual studio, you will see something like this:
 
-![abcd dgml at visual studio](http://timepp.github.io/product/dot2dgml/abcd_dgml_in_visual_studio.png)
+![abcd dgml at visual studio](doc/abcd_dgml_in_visual_studio.png)
 
 Then you can drag/colorize/group/flag... in the rich featured editor. Enjoy!!!
 
 More examples:
 
     BCPL [fillcolor=#008000;fontcolor=#ffff00] BCPL->B->C C->C++ [color=red] Simula->C++ [color=red]
-![C++ dependencies](http://timepp.github.io/product/dot2dgml/cplusplus_dgml.png)
+![C++ dependencies](doc/cplusplus_dgml.png)

@@ -10,9 +10,9 @@ import strutil;
 
 class Node
 {
-    dstring id;
-    dstring[dstring] attr;
-    this(dstring s)
+    string id;
+    string[string] attr;
+    this(string s)
     {
         id = s;
     }
@@ -23,10 +23,10 @@ class Node
 
 class Graph : Node
 {
-    Node[dstring] nodes;
+    Node[string] nodes;
     Edge[] edges;
 
-    Node getNode(dstring name)
+    Node getNode(string name)
     {
         if (name in nodes) return nodes[name];
         Node n = new Node(name);
@@ -48,17 +48,17 @@ class Edge : Node
 };
 
 // Tokenize the source buffer to tokens, removing any comments and white spaces not inside string
-dstring[] Tokenize(dstring s)
+string[] Tokenize(string s)
 {
 	// Remove quote, if any
 	s = strip(s);
 	if (s[0] == '"') s = s[1..$-1];
 
 	// Remove comments
-	s = replace(s, regex(r"/\*.*?\*/"d, "gs"), " "d);
-	s = replace(s, regex(r"//.*?\n"d, "g"), "\n"d);
+	s = replace(s, regex(r"/\*.*?\*/", "gs"), " ");
+	s = replace(s, regex(r"//.*?\n", "g"), "\n");
 
-    dstring[] ret;
+    string[] ret;
     bool inString = false;
     int p = 0;
     int q = 0;
@@ -87,14 +87,14 @@ dstring[] Tokenize(dstring s)
                 q++;
                 inString = true;
             }
-			else if (indexOf("->{}=[]()"d, ch) != -1)
+			else if (indexOf("->{}=[]()", ch) != -1)
 			{
 				if (p < q) ret ~= s[p..q];
 				ret ~= s[q..q+1];
 				p = q+1;
 				q++;
 			}
-			else if (indexOf(" \t\r\n;"d, ch) != -1)
+			else if (indexOf(" \t\r\n;", ch) != -1)
 			{
 				if (p < q) ret ~= s[p..q];
 				p = q+1;
@@ -110,7 +110,7 @@ dstring[] Tokenize(dstring s)
     return ret;
 }
 
-dstring normalize(dstring s)
+string normalize(string s)
 {
     if (s.length > 1 && s[0] == '"' && s[$-1] == '"')
     {
@@ -120,7 +120,7 @@ dstring normalize(dstring s)
     return s.strip();
 }
 
-Graph ParseDot(dstring[] tokens)
+Graph ParseDot(string[] tokens)
 {
     Graph g = new Graph;
     int p = 0;
@@ -147,8 +147,8 @@ Graph ParseDot(dstring[] tokens)
         // edges
         if (p > 0 && p + 2 < tokens.length && tokens[p] == "-" && tokens[p+1] == ">")
         {
-            dstring leftName = tokens[p-1].normalize();
-            dstring rightName = tokens[p+2].normalize();
+            string leftName = tokens[p-1].normalize();
+            string rightName = tokens[p+2].normalize();
             Node left = g.getNode(leftName);
             Node right = g.getNode(rightName);
             Edge e = new Edge(left, right);
@@ -173,25 +173,19 @@ Graph ParseDot(dstring[] tokens)
         }
 
         // normal nodes
-        if (isalnum(tokens[p][0]))
-        {
-            lastNode = g.getNode(tokens[p].normalize());
-            p++;
-            continue;
-        }
-
-        // others, ignore
+        lastNode = g.getNode(tokens[p].normalize());
+		writeln(lastNode.id);
         p++;
     }
 
     return g;
 }
 
-dstring MapAttribute(dstring attr)
+string MapAttribute(string attr)
 {
-	if (attr == "color"d) return "Stroke"d;
-	if (attr == "fillcolor"d) return "Background"d;
-	if (attr == "fontcolor"d) return "Foreground"d;
+	if (attr == "color") return "Stroke";
+	if (attr == "fillcolor") return "Background";
+	if (attr == "fontcolor") return "Foreground";
 	return attr;
 }
 
@@ -202,14 +196,14 @@ string GenerateDgml(Graph g)
     auto doc = new Document(xg);
 
     auto xNodes = new Element("Nodes");
-    foreach(dstring nodeID, Node n; g.nodes)
+    foreach(string nodeID, Node n; g.nodes)
     {
         auto xn = new Tag("Node");
-        xn.attr["Id"] = to!string(nodeID);
-        xn.attr["Label"] = to!string(n.id);
-        foreach(dstring k, dstring v; n.attr)
+        xn.attr["Id"] = nodeID;
+        xn.attr["Label"] = n.id;
+        foreach(string k, string v; n.attr)
         {
-           xn.attr[to!string(MapAttribute(k))] = to!string(v);
+           xn.attr[MapAttribute(k)] = v;
         }
         xNodes ~= new Element(xn);
     }
@@ -219,11 +213,11 @@ string GenerateDgml(Graph g)
     foreach(e; g.edges)
     {
         auto xe = new Tag("Link");
-        xe.attr["Target"] = to!string(e.right.id);
-        xe.attr["Source"] = to!string(e.left.id);
-        foreach(dstring k, dstring v; e.attr)
+        xe.attr["Target"] = e.right.id;
+        xe.attr["Source"] = e.left.id;
+        foreach(string k, string v; e.attr)
         {
-            xe.attr[to!string(MapAttribute(k))] = to!string(v);
+            xe.attr[MapAttribute(k)] = v;
         }
         xEdges ~= new Element(xe);
     }
@@ -265,8 +259,8 @@ int main(string[] args)
     }
 
 	string content = fi.readln(0);
-	dstring dstr = to!dstring(content);
-	dstring[] tokens = Tokenize(dstr);
+	string[] tokens = Tokenize(content);
+	writeln(tokens);
     Graph g = ParseDot(tokens);
     string dgml = GenerateDgml(g);
     fo.writeln(dgml);
