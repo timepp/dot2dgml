@@ -3,6 +3,7 @@ module source.dot;
 import std.regex;
 import std.string;
 import std.stdio;
+import std.algorithm;
 
 import source.graph;
 import source.strutil;
@@ -106,9 +107,16 @@ Graph parseDot(string content)
 
 Graph ParseDot(string[] tokens)
 {
+    debugOutput(tokens);
     Graph g = new Graph;
     int p = 0;
-    Node lastNode = null;
+    Node lastNode1 = null;
+    Node lastNode2 = null;
+
+    string[string] globalAttrs;
+    string[string] nodeAttrs;
+    string[string] edgeAttrs;
+    string[string] dummyAttrs;
 
     if (p < tokens.length && tokens[p].toLower() == "strict")
     {
@@ -116,8 +124,8 @@ Graph ParseDot(string[] tokens)
     }
 
     // eat graph header
+    if (p < tokens.length)
     {
-        // graph header
         const string lowerToken = tokens[p].toLower();
         if (lowerToken == "digraph" || lowerToken == "graph")
         {
@@ -130,20 +138,33 @@ Graph ParseDot(string[] tokens)
 
     while (p < tokens.length)
     {
-        // graph header
-        if (tokens[p].toLower() == "digraph")
-        {
-            for (; p < tokens.length && tokens[p] != "{"; p++)
-            {
-            }
-            continue;
-        }
-
         // graph attributes
         if (p > 0 && tokens[p] == "=" && p + 1 < tokens.length)
         {
             g.attr[tokens[p - 1]] = tokens[p + 1];
             p += 2;
+            debugOutput("eating global attr");
+            continue;
+        }
+
+        if (tokens[p].toLower() == "graph" && p + 1 < tokens.length && tokens[p+1] == "[")
+        {
+            debugOutput("eating graph attr");
+            p = fillAttributes(tokens, p+1, globalAttrs, dummyAttrs);
+            continue;
+        }
+
+        if (tokens[p].toLower() == "node" && p + 1 < tokens.length && tokens[p+1] == "[")
+        {
+            p = fillAttributes(tokens, p+1, nodeAttrs, dummyAttrs);
+            debugOutput("eating node attr: ", nodeAttrs);
+            continue;
+        }
+
+        if (tokens[p].toLower() == "edge" && p + 1 < tokens.length && tokens[p+1] == "[")
+        {
+            debugOutput("eating edge attr");
+            p = fillAttributes(tokens, p+1, edgeAttrs, dummyAttrs);
             continue;
         }
 
@@ -152,11 +173,31 @@ Graph ParseDot(string[] tokens)
         {
             string leftName = tokens[p - 1].unquote();
             string rightName = tokens[p + 2].unquote();
-            Node left = g.getNode(leftName);
-            Node right = g.getNode(rightName);
-            Edge e = new Edge(left, right);
+            Node left = g.getNode(leftName, globalAttrs, nodeAttrs);
+            Node right = g.getNode(rightName, globalAttrs, nodeAttrs);
+            Edge e = new Edge(left, right, globalAttrs, edgeAttrs);
             g.edges ~= e;
-            lastNode = e;
+            lastNode1 = e;
+
+            p += 3;
+            debugOutput("eating edge");
+            continue;
+        }
+
+        // edges
+        if (p > 0 && p + 2 < tokens.length && tokens[p] == "-" && tokens[p + 1] == "-")
+        {
+            string leftName = tokens[p - 1].unquote();
+            string rightName = tokens[p + 2].unquote();
+            Node left = g.getNode(leftName, globalAttrs, nodeAttrs);
+            Node right = g.getNode(rightName, globalAttrs, nodeAttrs);
+            Edge e = new Edge(left, right, globalAttrs, edgeAttrs);
+            g.edges ~= e;
+            lastNode1 = e;
+            e = new Edge(right, left, globalAttrs, edgeAttrs);
+            g.edges ~= e;
+            lastNode2 = e;
+            debugOutput("eating edge");
             p += 3;
             continue;
         }
@@ -164,18 +205,12 @@ Graph ParseDot(string[] tokens)
         // attributes
         if (tokens[p] == "[")
         {
-            for (p++; p < tokens.length && tokens[p] != "]"; p++)
-            {
-                if (tokens[p] == "=" && p + 1 < tokens.length)
-                {
-                    if (lastNode)
-                        lastNode.attr[tokens[p - 1]] = tokens[p + 1];
-                }
-            }
-            p++;
+            p = fillAttributes(tokens, p, lastNode1?lastNode1.attr:dummyAttrs, lastNode2?lastNode2.attr:dummyAttrs);
+            debugOutput("eating attr");
             continue;
         }
 
+        // closing brace
         if (tokens[p] == "}")
         {
             p++;
@@ -183,9 +218,30 @@ Graph ParseDot(string[] tokens)
         }
 
         // normal nodes
-        lastNode = g.getNode(tokens[p].unquote());
+        lastNode1 = g.getNode(tokens[p].unquote(), globalAttrs, nodeAttrs);
         p++;
+        debugOutput("eating node ", lastNode1.id, " | ", lastNode1.attr);
     }
 
+    debugOutput(g.nodes);
     return g;
+}
+
+private int fillAttributes(string[] tokens, int p, ref string[string] attr1, ref string[string] attr2)
+{
+    for (p++; p < tokens.length && tokens[p] != "]"; p++)
+    {
+        if (tokens[p] == "=" && p + 1 < tokens.length)
+        {
+            attr1[tokens[p-1]] = tokens[p+1];
+            attr2[tokens[p-1]] = tokens[p+1];
+        }
+    }
+    p++;
+    return p;
+}
+
+private void debugOutput(T...)(T args)
+{
+//    writeln(args);
 }

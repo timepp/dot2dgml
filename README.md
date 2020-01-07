@@ -30,12 +30,11 @@ the shortest valid non-trival input is:
 
 dot2dgml has limitations as well:
 
-* many dot language features are not available in dgml.
-* sub-graph is not supported as for now.
-
-Unicode input should be `utf-8` encoded. If you want to pipe output to `dot2dgml`, 
-- On Windows command line, run `chcp 65001` beforehand
-- On Linux command line, set `LANG` to `UTF-8` 
+- Unicode input should be `utf-8` encoded. If you want to pipe output to `dot2dgml`: On Windows command line, run `chcp 65001` beforehand; On Linux command line, set `LANG` to `UTF-8`.
+- sub-graph is not supported as for now.
+- only `color`, `fillcolor` and `fontcolor` attributes are translated and verified to work in dgml. All other attributes are plainly copied to dgml and will work if you are very lucky.
+- HTML labels are not supported as it's not supported by DGML.
+- As DGML don't support undirected edges, so each undirected edge `a--b` are translated to 2 directed edges `a->b` and `b->a`
 
 ## examples
 
