@@ -109,6 +109,25 @@ Graph ParseDot(string[] tokens)
     Graph g = new Graph;
     int p = 0;
     Node lastNode = null;
+
+    if (p < tokens.length && tokens[p].toLower() == "strict")
+    {
+        p++;
+    }
+
+    // eat graph header
+    {
+        // graph header
+        const string lowerToken = tokens[p].toLower();
+        if (lowerToken == "digraph" || lowerToken == "graph")
+        {
+            for (; p < tokens.length && tokens[p] != "{"; p++)
+            {
+            }
+            p++;
+        }
+    }
+
     while (p < tokens.length)
     {
         // graph header
@@ -153,6 +172,12 @@ Graph ParseDot(string[] tokens)
                         lastNode.attr[tokens[p - 1]] = tokens[p + 1];
                 }
             }
+            p++;
+            continue;
+        }
+
+        if (tokens[p] == "}")
+        {
             p++;
             continue;
         }
